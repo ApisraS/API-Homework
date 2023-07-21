@@ -1,0 +1,26 @@
+
+
+[
+    {
+    "World": {
+        "cases": 505383402,
+        "todayCases": 312162,
+        "deaths": 6225427,
+        "todayDeaths": 892,
+        "recovered": 457262982,
+        "todayRecovered": 746464,
+        "active": 41894993,
+        "critical": 41939
+    },
+    "Thailand": {
+        "cases": 4063844,
+        "todayCases": 16891,
+        "deaths": 27138,
+        "todayDeaths": 129,
+        "recovered": 3839360,
+        "todayRecovered": 24927,
+        "active": 197346,
+        "critical": 1496
+    }
+}
+]

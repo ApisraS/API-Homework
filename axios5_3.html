@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homework5.3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      table tr td {
+        width: 200px;
+        border: 0px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="text-2xl ml-[450px] py-5 px-5 font-bold">Hello ReqRes Users!</h1>
+
+    <table>
+      <tr id="rowDisplay" class="flex flex-row ml-[55px]"></tr>
+    </table>
+
+    <script>
+      const getElementHtml = function (first_name, email, gender, age, img) {
+        console.log(
+          "first_name",
+          first_name,
+          "\nemail",
+          email,
+          "\ngender",
+          gender,
+          "\nage",
+          age,
+          "\nimg",
+          img
+        );
+        let userInf = `<td>
+                        <p>${first_name}</p>
+                        <p>${email}</p>
+                        <p>${gender}</p>
+                        <p>${age}</p>
+                        <img src="${img}">
+                    </td>`;
+        return userInf;
+      };
+
+      const element = document.getElementById("rowDisplay");
+
+      let users = axios
+        .get("https://reqres.in/api/users/")
+        .then(function (response) {
+          let users = response.data.data;
+          const rowDisplay = document.getElementById("rowDisplay");
+
+          console.log(users);
+
+          let textHtml = "";
+          for (let i = 0; i < users.length; i++) {
+            let first_name = users[i].first_name;
+            let email = users[i].email;
+            let img = users[i].avatar;
+            let last_name = users[i].last_name;
+
+            axios
+              .get("https://api.genderize.io?name=" + first_name)
+              .then(function (response) {
+                let gender = response.data.gender;
+                axios
+                  .get("https://api.agify.io/?name=" + first_name)
+                  .then(function (response) {
+                    let age = response.data.age;
+                    rowDisplay.innerHTML += getElementHtml(
+                      first_name,
+                      email,
+                      gender,
+                      age,
+                      img
+                    );
+                  });
+              });
+          }
+        });
+     
+    </script>
+  </body>
+</html>
