@@ -1,58 +1,50 @@
 [
   {
-    "id": 1,
-    "email": "george.bluth@reqres.in",
-    "first_name": "George",
-    "last_name": "Bluth",
-    "gender": "male",
-    "age": 24,
-    "avatar": "https://reqres.in/img/faces/1-image.jpg"
+    "id": "01",
+    "name": "Prang",
+    "lastname": "Suvi",
+    "age": "38",
+    "gender": "Female",
+    "address": {
+      "sub_district": "BangKae",
+      "district": "Sai1",
+      "province": "BKK"
+    },
+    "contact": {
+      "mobile": "098989898",
+      "email": "app@app"
+    }
   },
   {
-    "id": 2,
-    "email": "janet.weaver@reqres.in",
-    "first_name": "Janet",
-    "last_name": "Weaver",
-    "gender": "female",
-    "age": 64,
-    "avatar": "https://reqres.in/img/faces/2-image.jpg"
+    "id": "02",
+    "name": "Paiboon",
+    "lastname": "Panusbordee",
+    "age": "35",
+    "gender": "Male",
+    "address": {
+      "sub_district": "BangNa",
+      "district": "BangPri",
+      "province": "Taiwan"
+    },
+    "contact": {
+      "mobile": "099999999",
+      "email": "paiboon@app"
+    }
   },
   {
-    "id": 3,
-    "email": "emma.wong@reqres.in",
-    "first_name": "Emma",
-    "last_name": "Wong",
-    "gender": "female",
-    "age": 35,
-    "avatar": "https://reqres.in/img/faces/3-image.jpg"
-  },
-  {
-    "id": 4,
-    "email": "eve.holt@reqres.in",
-    "first_name": "Eve",
-    "last_name": "Holt",
-    "gender": "female",
-    "age": 25,
-    "avatar": "https://reqres.in/img/faces/4-image.jpg"
-  },
-  { 
-  "id": 5,
-  "email": "charles.morris@reqres.in",
-  "first_name": "Charles",
-  "last_name": "Morris",
-  "gender": "male",
-  "age": 61,
-  "avatar": "https://reqres.in/img/faces/5-image.jpg"
-  },
-  {
-  "id": 6,
-  "email": "tracey.ramos@reqres.in",
-  "first_name": "Tracey",
-  "last_name": "Ramos",
-  "gender": "female",
-  "age": 53,
-  "avatar": "https://reqres.in/img/faces/6-image.jpg"
+    "id": "03",
+    "name": "Peter",
+    "lastname": "Parker",
+    "age": "17",
+    "gender": "Male",
+    "address": {
+      "sub_district": "Razor Ramon",
+      "district": "Fallaway SlamKae",
+      "province": "USA"
+    },
+    "contact": {
+      "mobile": "098989898",
+      "email": "peter@app"
+    }
   }
 ]
-
-

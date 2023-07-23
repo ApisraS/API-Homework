@@ -118,7 +118,7 @@
       Promise.resolve(thai).then((res) => {
         covidData = {
           ...covidData,
-          thai: {
+          Thailand: {
             cases: res.cases,
             todayCases: res.todayCases,
             deaths: res.deaths,
@@ -133,7 +133,7 @@
         Promise.resolve(world).then((res) => {
           covidData = {
             ...covidData,
-            world: {
+            World: {
               cases: res.cases,
               todayCases: res.todayCases,
               deaths: res.deaths,

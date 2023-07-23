@@ -60,12 +60,13 @@
           let textHtml = "";
 
           let aLastName = [];
-
+          let aUser = [];
           for (let i = 0; i < users.length; i++) {
             let first_name = users[i].first_name;
             let email = users[i].email;
             let img = users[i].avatar;
             let last_name = users[i].last_name;
+            let id = users[i].id;
             aLastName.push(last_name);
 
             axios
@@ -76,6 +77,16 @@
                   .get("https://api.agify.io/?name=" + first_name)
                   .then(function (response) {
                     let age = response.data.age;
+                    aUser.push({
+                      first_name,
+                      last_name,
+                      email,
+                      img,
+                      gender,
+                      age,
+                      id,
+                    });
+
                     rowDisplay.innerHTML += getElementHtml(
                       first_name,
                       email,
@@ -87,21 +98,8 @@
               });
           }
           console.log(aLastName);
+          console.log(aUser);
         });
-
-      // const aLastName = [
-      //       1, 'Bluth',
-      //       2, 'Weaver',
-      //       3, 'Wong',
-      //       4, 'Holt',
-      //       5, 'Morris',
-      //       6, 'Ramos',
-      //       ];
-
-      //     for (let i = 0; i < aLastName.length; i++) {
-      //       let aLastName = users[i].last_name;
-      //       console.log(aLastName);
-      //       }
     </script>
   </body>
 </html>

@@ -1,144 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeWorkJson</title>
-</head>
-<body>
-    <script src="homework5_1.json"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homework5_1</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      table tr td {
+        width: 200px;
+        border: 0px solid black;
+      }
+    </style>
+  </head>
 
-      <style>
-         table {
-         border-collapse: collapse;
-         }
+  <body>
+    <h1 class="text-2xl ml-[450px] py-5 px-5 font-bold">Hello ReqRes Users!</h1>
 
-        th, td {
-          border: 1px solid black;
-          padding : 8px;
+    <table>
+      <tr id="rowDisplay" class="flex flex-row ml-[55px]">
+        <p class="text-center"></p>
+      </tr>
+    </table>
+    <script>
+      axios.get("https://reqres.in/api/users/").then(function (response) {
+        let rowDisplay = document.getElementById("rowDisplay");
+
+        let textHtml = "";
+        let users = response.data.data;
+        for (let i = 0; i < users.length; i++) {
+          let img = "<img src='" + users[i].avatar + " '> ";
+          let name =
+            "<p>" + users[i].first_name + " " + users[i].last_name + "</p>";
+          let email = "<p>" + users[i].email + "</p>";
+          textHtml += "<td>" + name + email + img + "</td>";
         }
-      </style>
-    </head>
-    <body>
-      <table id="patientsTable">
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>Name</th>
-            <th>Lastname</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Contact</th>
-
-        <tbody>
-            <tr>
-                <td>01</td>
-                <td>Prang</td>
-                <td>Suvi</td>
-                <td>38</td>
-                <td>Female</td>
-                <td><ul>
-                    <li>Sub_district:BangKae</li>
-                    <li>District: Sai 1</li>
-                    <li>Province: BKK</li>
-                </ul></td>
-                <td><ul>
-                       <li>Mobile: 098989898</li>
-                       <li>Email: app@app</li>
-              </tr>
-              <tr>
-                <td>02</td>
-                <td>Paiboon</td>
-                <td>Panusbordee</td>
-                <td>35</td>
-                <td>Male</td>
-                <td><ul>
-                    <li>Sub_district:Bangna</li>
-                    <li>District: BangPri</li>
-                    <li>Province: BKK</li>
-                <td><ul>
-                    <li>Mobile: 099999999</li>
-                    <li>Email: paiboon@app</li>
-               </tr>
-               <tr>
-                <td>03</td>
-                <td>Peter</td>
-                <td>Parker</td>
-                <td>17</td>
-                <td>Male</td>
-                <td><ul>
-                    <li>Sub_district: Razor Ramon</li>
-                    <li>District: Fallaway SlamKae</li>
-                    <li>Province: USA</li>
-                <td><ul>
-                    <li>Mobile: 098989898</li>
-                    <li>Email: peter@app</li>
-               </tr>
-          <thead>
-        </tbody>
-
-      </table>
-    
-      <script>
-        const patientsData = {
-          "patients": [
-            {
-              "id": "01",
-              "name": "Prang",
-              "lastname": "Suvi",
-              "age": "38",
-              "gender": "Female",
-              "address": {
-                "sub_district": "BangKae",
-                "district": "Sai1",
-                "province": "BKK"
-              },
-              "contact": {
-                "mobile": "098989898",
-                "email": "app@app"
-              }
-            },
-            {
-              "id": "02",
-              "name": "Paiboon",
-              "lastname": "Panusbordee",
-              "age": "35",
-              "gender": "Male",
-              "address": {
-                "sub_district": "BangNa",
-                 "district": "BangPri",
-                "province": "Taiwan"
-              },
-              "contact": {
-                "mobile": "099999999",
-                "email": "paiboon@app"
-              }
-            },
-            {
-              "id": "03",
-              "name": "Peter",
-              "lastname": "Parker",
-              "age": "17",
-              "gender": "Male",
-              "address": {
-                "sub_district": "Razor Ramon",
-                "district": "Fallaway SlamKae",
-                "province": "USA"
-              },
-              "contact": {
-                "mobile": "098989898",
-                "email": "peter@app"
-              }
-            }
-          ]
-        };
-
-        // console.log(patients)
-    
-       
-      </script>
-    </body>
-    </html>
-    
+        rowDisplay.innerHTML = textHtml;
+        console.log(users);
+      });
+    </script>
+  </body>
+</html>
