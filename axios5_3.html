@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>homework5.3</title>
+    <title>homework5_3</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -58,11 +58,15 @@
           console.log(users);
 
           let textHtml = "";
+
+          let aLastName = [];
+
           for (let i = 0; i < users.length; i++) {
             let first_name = users[i].first_name;
             let email = users[i].email;
             let img = users[i].avatar;
             let last_name = users[i].last_name;
+            aLastName.push(last_name);
 
             axios
               .get("https://api.genderize.io?name=" + first_name)
@@ -82,8 +86,22 @@
                   });
               });
           }
+          console.log(aLastName);
         });
-     
+
+      // const aLastName = [
+      //       1, 'Bluth',
+      //       2, 'Weaver',
+      //       3, 'Wong',
+      //       4, 'Holt',
+      //       5, 'Morris',
+      //       6, 'Ramos',
+      //       ];
+
+      //     for (let i = 0; i < aLastName.length; i++) {
+      //       let aLastName = users[i].last_name;
+      //       console.log(aLastName);
+      //       }
     </script>
   </body>
 </html>
